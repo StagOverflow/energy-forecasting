@@ -6,7 +6,7 @@
  * Replace docker compose with kubernetes
  * Replace hopswork with feast
  * Replace fastapi with flask
- * Separate pypi server from airflopw
+ * Separate pypi server from airflow
  * Mess around with the airflow DAG, this one looks wrong to me
  * Implement recommendations in 8
  * automate VM setup
