@@ -10,6 +10,9 @@
  * Mess around with the airflow DAG, this one looks wrong to me
  * Implement recommendations in 8
  * automate VM setup
+ * Docker publish instead of pypi server
+ * Manage env vars better
+
 
 # Note on GCP setup
 
