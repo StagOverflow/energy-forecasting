@@ -8,6 +8,8 @@
  * Replace fastapi with flask
  * Separate pypi server from airflopw
  * Mess around with the airflow DAG, this one looks wrong to me
+ * Implement recommendations in 8
+ * automate VM setup
 
 # Note on GCP setup
 
