@@ -7,13 +7,13 @@
 # The my-pypi repository must be defined in the project's poetry.toml file.
 
 cd feature-pipeline
-poetry build
-poetry publish -r my-pypi
+/home/heinrl/.local/bin/poetry build
+/home/heinrl/.local/bin/poetry publish -r my-pypi
 
 cd ../training-pipeline
-poetry build
-poetry publish -r my-pypi
+/home/heinrl/.local/bin/poetry build
+/home/heinrl/.local/bin/poetry publish -r my-pypi
 
 cd ../batch-prediction-pipeline
-poetry build
-poetry publish -r my-pypi
+/home/heinrl/.local/bin/poetry build
+/home/heinrl/.local/bin/poetry publish -r my-pypi
