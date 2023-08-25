@@ -10,6 +10,7 @@ from api.config import get_settings
 
 fs = gcsfs.GCSFileSystem(
     project=get_settings().GCP_PROJECT,
+    #TODO: This needs to come from secrets instead of having to install the file itself on the VM
     token=get_settings().GCP_SERVICE_ACCOUNT_JSON_PATH,
 )
 
