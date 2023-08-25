@@ -102,6 +102,8 @@ def get_bucket(
         json_credentials_path=json_credentials_path,
         project=bucket_project,
     )
+
+    logging.info(f"Connected to Google Cloud Storage bucket {bucket_name}.")
     bucket = storage_client.bucket(bucket_name=bucket_name)
 
     return bucket

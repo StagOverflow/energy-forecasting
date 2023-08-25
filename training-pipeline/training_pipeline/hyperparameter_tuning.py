@@ -1,8 +1,8 @@
 from functools import partial
 from typing import Optional
 
-import fire
 import numpy as np
+import fire
 import pandas as pd
 import wandb
 
@@ -87,8 +87,7 @@ def run_sweep(y_train: pd.DataFrame, X_train: pd.DataFrame, fh: int):
     ) as run:
         run.use_artifact("split_train:latest")
 
-        config = wandb.config
-        config = dict(config)
+        config = dict(wandb.config)
         model = build_model(config)
 
         model, results = train_model_cv(model, y_train, X_train, fh=fh)

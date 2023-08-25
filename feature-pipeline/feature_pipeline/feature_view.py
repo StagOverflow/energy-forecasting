@@ -37,11 +37,12 @@ def create(
         dict: The feature group version.
 
     """
-
+    # TODO: Second place I see this logic, needs to be extracted.
     if feature_group_version is None:
         feature_pipeline_metadata = utils.load_json("feature_pipeline_metadata.json")
         feature_group_version = feature_pipeline_metadata["feature_group_version"]
 
+    # TODO: Can this become a generic feature store interaction function?
     if start_datetime is None or end_datetime is None:
         feature_pipeline_metadata = utils.load_json("feature_pipeline_metadata.json")
         start_datetime = datetime.strptime(

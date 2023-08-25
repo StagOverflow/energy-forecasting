@@ -33,6 +33,8 @@ def run(
     """
 
     logger.info(f"Extracting data from API.")
+
+    # NOTE: We are making the assumption that all the data returned fits in memory.
     data, metadata = extract.from_api(
         export_end_reference_datetime, days_delay, days_export, url
     )

@@ -43,4 +43,5 @@ ML_PIPELINE_ROOT_DIR = get_root_dir()
 OUTPUT_DIR = ML_PIPELINE_ROOT_DIR / "output"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+# TODO: I don't like this. We should pass a config object around.
 SETTINGS = load_env_vars(root_dir=ML_PIPELINE_ROOT_DIR)

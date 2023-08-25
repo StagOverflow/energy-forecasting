@@ -1,6 +1,16 @@
 from sktime.transformations.base import BaseTransformer
-from sktime.transformations.compose import CORE_MTYPES
 
+
+CORE_MTYPES = [
+    "pd.DataFrame",
+    "np.ndarray",
+    "pd.Series",
+    "pd-multiindex",
+    "df-list",
+    "nested_univ",
+    "numpy3D",
+    "pd_multiindex_hier",
+]
 
 class AttachAreaConsumerType(BaseTransformer):
     """Transformer used to extract the area and consumer type from the index to the input data."""

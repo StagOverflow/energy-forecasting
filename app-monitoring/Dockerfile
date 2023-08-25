@@ -18,4 +18,4 @@ RUN poetry install --no-interaction --no-root -vvv
 # Copy the rest of the files.
 ADD ./app-monitoring /app/src
 
-CMD ["streamlit", "run", "monitoring/main.py", "--server.port", "8502"]
+CMD ["streamlit", "run", "monitoring/main.py", "--server.port", "8502", "--logger.level=debug"]

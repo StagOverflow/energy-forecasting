@@ -80,6 +80,8 @@ def from_api(
     url = URL(url) % query_params
     url = str(url)
     logger.info(f"Requesting data from API with URL: {url}")
+
+    # TODO - This needs error handling
     response = requests.get(url)
     logger.info(f"Response received from API with status code: {response.status_code} ")
 

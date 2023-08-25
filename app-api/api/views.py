@@ -163,13 +163,13 @@ async def get_predictions(area: int, consumer_type: int) -> Any:
         )
     except KeyError:
         raise HTTPException(
-            status_code=404,
+            status_code=204,
             detail=f"No data found for the given area and consumer typefrontend: {area}, {consumer_type}",
         )
 
     if len(y_monitoring) == 0 or len(predictions_monitoring) == 0:
         raise HTTPException(
-            status_code=404,
+            status_code=204,
             detail=f"No data found for the given area and consumer type: {area}, {consumer_type}",
         )
 

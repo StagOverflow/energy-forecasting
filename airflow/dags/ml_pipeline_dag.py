@@ -321,6 +321,7 @@ def ml_pipeline():
     )
 
     # Define DAG structure.
+    # noinspection PyTypeChecker
     (
         feature_view_metadata
         >> if_run_hyperparameter_tuning_branch

@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "monitoring"}]
 
 [tool.poetry.dependencies]
-python = ">3.9.7,<3.10"
+python = ">=3.9,<3.11"
 streamlit = ">=1.21.0,<1.22.0"
 plotly = ">=5.14.1,<5.15.0"
 yarl = "^1.8.2"

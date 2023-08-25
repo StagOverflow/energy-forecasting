@@ -6,8 +6,11 @@ authors = ["Iusztin Paul <p.e.iusztin@gmail.com>", "Kurtis Pykes <kurtispykes@gm
 readme = "README.md"
 packages = [{include = "feature_pipeline"}]
 
+# confluent-kafka fix: https://stackoverflow.com/questions/75704644/unable-to-install-confluent-kafka-python-module-on-alpine-3-13-5
+# twofish windows fix: install VSC C++ build tools
+
 [tool.poetry.dependencies]
-python = "~3.9"
+python = ">=3.9,<3.11"
 hopsworks = "3.2.0"
 fire = "^0.5.0"
 yarl = "^1.8.2"
