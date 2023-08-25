@@ -4,7 +4,7 @@ import streamlit as st
 
 from settings import API_URL, TITLE
 from components import build_data_plot
-
+import logging
 
 st.set_page_config(page_title=TITLE)
 st.title(TITLE)
@@ -21,6 +21,7 @@ area = st.selectbox(
 )
 
 # Create dropdown for consumer type selection.
+logging.info(f"Making API call to {API_URL / 'consumer_type_values'}")
 consumer_type_response = requests.get(API_URL / "consumer_type_values")
 
 consumer_type = st.selectbox(
