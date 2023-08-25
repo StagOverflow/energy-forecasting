@@ -14,8 +14,7 @@ st.plotly_chart(build_metrics_plot())
 
 st.divider()
 
-
-# Create dropdown for area selection.
+# Create the dropdown for area selection.
 area_response = requests.get(API_URL / "area_values")
 
 area = st.selectbox(
