@@ -1,7 +1,7 @@
 ## Next steps
 
  * Run everything
- * Use a different datasource
+ * Use a different data source
  * Replace wandb with mlflow
  * Replace docker compose with kubernetes
  * Replace hopswork with feast
@@ -12,6 +12,16 @@
  * automate VM setup
  * Docker publish instead of pypi server
  * Manage env vars better
+
+next up: 
+1. create the docker image for feature-pipeline
+2. create a gcs container registry
+3. push image there
+4. have airflow pick it up and run it
+5. Apply that to the remaining pipelines steps
+
+Feast: replace hopsworks with feast
+Wandb: replace wandb with mlflow
 
 
 # Note on GCP setup

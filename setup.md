@@ -41,6 +41,6 @@ sudo usermod -aG docker $USER
 
 ## Upload env file
 gcloud compute scp --recurse --zone northamerica-northeast2-a --quiet --tunnel-through-iap --project energy-consumption-396719 .env app:~/energy-forecasting/.env
-
+scp the credentials folder as well
 gcloud compute scp --recurse --zone northamerica-northeast2-a --quiet --tunnel-through-iap --project energy-consumption-396719 credentials/gcp/energy_consumption/read-buckets.json app:~/energy-forecasting/credentials/gcp/energy_consumption/read-buckets.json
 /app/src/credentials/gcp/energy_consumption/read-buckets.json
