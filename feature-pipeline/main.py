@@ -1,13 +1,15 @@
 import click
+from datetime import datetime
+from feature_pipeline import utils
+from feature_pipeline import pipeline
 
 
 @click.command()
-@click.argument('--export_end_reference_datetime',
-                type=click.DateTime(formats=["%Y-%m-%d %H:%M:%S.%f%z", "%Y-%m-%d %H:%M:%S%z"]))
-@click.argument('--days_delay', type=click.INT)
-@click.argument('--days_export', type=click.INT)
-@click.argument('--url', type=click.STRING)
-@click.argument('--feature_group_version', type=click.INT)
+@click.option('--export_end_reference_datetime', type=click.DateTime(formats=["%Y-%m-%d %H:%M:%S.%f%z", "%Y-%m-%d %H:%M:%S%z"]), required=True)
+@click.option('--days_delay', type=click.INT, required=True)
+@click.option('--days_export', type=click.INT, required=True)
+@click.option('--url', type=click.STRING, required=True)
+@click.option('--feature_group_version', type=click.INT, required=True)
 def run_feature_pipeline(
         export_end_reference_datetime: str,
         days_delay: int,
@@ -39,20 +41,8 @@ def run_feature_pipeline(
         Metadata of the feature pipeline run.
     """
 
-    from datetime import datetime
-
-    from feature_pipeline import utils, pipeline
-
     logger = utils.get_logger(__name__)
 
-    try:
-        export_end_reference_datetime = datetime.strptime(
-            export_end_reference_datetime, "%Y-%m-%d %H:%M:%S.%f%z"
-        )
-    except ValueError:
-        export_end_reference_datetime = datetime.strptime(
-            export_end_reference_datetime, "%Y-%m-%d %H:%M:%S%z"
-        )
     export_end_reference_datetime = export_end_reference_datetime.replace(
         microsecond=0, tzinfo=None
     )
@@ -70,3 +60,7 @@ def run_feature_pipeline(
         url=url,
         feature_group_version=feature_group_version,
     )
+
+
+if __name__ == '__main__':
+    run_feature_pipeline()
