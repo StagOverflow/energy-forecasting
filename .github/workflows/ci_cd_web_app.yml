@@ -1,4 +1,4 @@
-name: CI/CD for the web app (API + frontend)
+name: web-app-release
 
 on:
   push:
@@ -17,7 +17,7 @@ env:
   ZONE: '${{ vars.ZONE }}'
 
 jobs:
-  ci_cd:
+  release-app:
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v3'

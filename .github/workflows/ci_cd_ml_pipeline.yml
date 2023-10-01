@@ -1,4 +1,4 @@
-name: CD/CD for the ml-pipeline that builds all the pipeline modules and pushes them to the private PyPI registry. From where Airflow will install the latest versions and use them in the next run.
+name: ml-pipeline-release
 
 on:
   push:
