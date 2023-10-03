@@ -14,17 +14,34 @@ env:
   USER: '${{ vars.USER }}'
   INSTANCE_NAME: '${{ vars.ML_PIPELINE_INSTANCE_NAME }}'
   ZONE: '${{ vars.ZONE }}'
+  FS_PROJECT_NAME: '${{ vars.FS_PROJECT_NAME }}'
+  FS_API_KEY: '${{ secrets.FS_API_KEY }}'
+  GOOGLE_CLOUD_PROJECT: '${{ vars.GCLOUD_PROJECT }}'
+  GCP_DOCKER_INSTANCE: '${{ vars.GCP_DOCKER_INSTANCE }}'
+  DOCKER_REGISTRY_NAME: '${{ vars.DOCKER_REGISTRY_NAME }}'
+
 
 jobs:
   ci_cd:
     runs-on: ubuntu-latest
     steps:
       - uses: 'actions/checkout@v3'
-
       - id: 'auth'
         uses: 'google-github-actions/auth@v0'
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          version: '>= 363.0.0'
+
+          # ./push_image_to_gcp.sh -r northamerica-northeast2-docker.pkg.dev -p energy-consumption-396719 -t mlops-docker-repo\
+          # -i feature-pipeline -g 23.10.01-1 -f ../feature-pipeline-d ../.env
+      # TODO: organize variables properly, consolidate registry name, setup incremental tag
+      # TODO: Place scripts in a separate folder
+      # TODO: Resorted to putting the Dockerfile in the workflows folde: There is only partial visibility on the repo, need to fix this.
+      # The parents foler are missing all the files except for workflow
+      - run: ./push_image_to_gcp.sh -r $GCP_DOCKER_INSTANCE -p $GOOGLE_CLOUD_PROJECT -t $DOCKER_REGISTRY_NAME -i feature-pipeline -g latest -f ./feature-pipeline
       - id: 'compute-ssh'
         uses: 'google-github-actions/ssh-compute@v0'
         with:

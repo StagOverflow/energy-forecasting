@@ -12,11 +12,13 @@
  * automate VM setup
  * Docker publish instead of pypi server
  * Manage env vars better
+ * Give the image build script a second pass
+ * Use a secret vault instead of environment variables
 
 next up: 
-1. create the docker image for feature-pipeline
-2. create a gcs container registry
-3. push image there
+1. ~~create the docker image for feature-pipeline~~
+2. ~~create a gcs container registry~~
+3. ~~push image there~~
 4. have airflow pick it up and run it
 5. Apply that to the remaining pipelines steps
 

@@ -6,10 +6,6 @@
 # directories, so we must change directories before building and publishing the packages.
 # The my-pypi repository must be defined in the project's poetry.toml file.
 
-cd feature-pipeline
-/home/heinrl/.local/bin/poetry build
-/home/heinrl/.local/bin/poetry publish -r my-pypi
-
 cd ../training-pipeline
 /home/heinrl/.local/bin/poetry build
 /home/heinrl/.local/bin/poetry publish -r my-pypi

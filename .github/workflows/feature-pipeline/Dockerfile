@@ -24,11 +24,18 @@ ENV VENV_PATH=$ML_PIPELINE_ROOT_DIR/venv
 
 # Using the venv built in the pre-stage - note all copied files are owned by 0 by default
 COPY --chown=python:python --chmod=755 --from=build /usr/app/venv $VENV_PATH
-COPY --chown=python:python --chmod=755 . .
+COPY --chown=python:python --chmod=755 .. .
 
 
 WORKDIR $ML_PIPELINE_ROOT_DIR
-RUN --mount=type=secret,id=_env,dst=.src_env,uid=999 cat .src_env >> $ML_PIPELINE_ROOT_DIR/.env
+
+# TODO: Make this less repetitive
+ARG fs_api_key
+ARG fs_project_name
+ENV FS_API_KEY=$fs_api_key
+ENV FS_PROJECT_NAME=$fs_project_name
+
+# RUN --mount=type=secret,id=_env,dst=.src_env,uid=999 cat .src_env >> $ML_PIPELINE_ROOT_DIR/.env
 
 # Activating the venv manually
 ENV PATH="$VENV_PATH/bin:$PATH"

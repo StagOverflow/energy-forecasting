@@ -153,3 +153,4 @@ credentials/
 
 # Local notes
 deploy_hardcoded_steps.md
+/.github/workflows/feature-pipeline/.secrets
